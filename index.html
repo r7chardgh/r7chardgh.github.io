@@ -14,11 +14,11 @@
     <style>
       * {
         -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+        box-sizing: border-box;
       }
       :root {
         --main-color: #1ec4c4;
-        --second-color: #a2ffff;
+        --second-color: #c2ffff;
         --base-color: rgb(70, 79, 88);
         --font-color: rgb(255, 255, 255);
         background-color: var(--main-color);
@@ -43,13 +43,13 @@
         display: -ms-flexbox;
         display: flex;
         -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
         -webkit-perspective: 100rem;
-                perspective: 100rem;
+        perspective: 100rem;
         overflow: hidden;
       }
       button {
@@ -64,12 +64,13 @@
         background-color: var(--second-color);
         border-radius: 6px;
         -webkit-transform-style: preserve-3d;
-                transform-style: preserve-3d;
+        transform-style: preserve-3d;
         -webkit-transition: -webkit-transform 0.3s ease-in-out;
         transition: -webkit-transform 0.3s ease-in-out;
         -o-transition: transform 0.3s ease-in-out;
         transition: transform 0.3s ease-in-out;
-        transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out,
+          -webkit-transform 0.3s ease-in-out;
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 6rem auto 6rem;
@@ -130,7 +131,7 @@
       }
       .bubble:hover {
         -webkit-filter: brightness(1.2);
-                filter: brightness(1.2);
+        filter: brightness(1.2);
       }
       .bubble a {
         display: block;
@@ -151,19 +152,19 @@
         width: 3rem;
         height: 3rem;
         -webkit-perspective: 1000px;
-                perspective: 1000px;
+        perspective: 1000px;
         -webkit-transition: 0.3s ease-out;
         -o-transition: 0.3s ease-out;
         transition: 0.3s ease-out;
         color: var(--second-color);
         opacity: 0;
         -webkit-transform: translateY(10%) scale(0.6);
-            -ms-transform: translateY(10%) scale(0.6);
-                transform: translateY(10%) scale(0.6);
+        -ms-transform: translateY(10%) scale(0.6);
+        transform: translateY(10%) scale(0.6);
       }
       .light-toggle:hover {
         -webkit-filter: brightness(1.2);
-                filter: brightness(1.2);
+        filter: brightness(1.2);
       }
       .light-toggle-inner {
         position: relative;
@@ -175,11 +176,11 @@
         transition: transform 0.8s;
         transition: transform 0.8s, -webkit-transform 0.8s;
         -webkit-transform-style: preserve-3d;
-                transform-style: preserve-3d;
+        transform-style: preserve-3d;
       }
       html.dark .light-toggle-inner {
         -webkit-transform: rotateY(180deg);
-                transform: rotateY(180deg);
+        transform: rotateY(180deg);
       }
       .light-svg {
         position: absolute;
@@ -188,7 +189,7 @@
         top: 0;
         left: 0;
         -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
+        backface-visibility: hidden;
       }
       .dark-svg {
         position: absolute;
@@ -197,7 +198,7 @@
         top: 0;
         left: 0;
         -webkit-transform: rotateY(180deg);
-                transform: rotateY(180deg);
+        transform: rotateY(180deg);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
       }
@@ -209,11 +210,11 @@
         display: -ms-flexbox;
         display: flex;
         -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
         -webkit-transition: 0.3s ease-out;
         -o-transition: 0.3s ease-out;
         transition: 0.3s ease-out;
@@ -222,103 +223,103 @@
         top: 0;
         left: 0;
         -webkit-transform-origin: bottom right;
-            -ms-transform-origin: bottom right;
-                transform-origin: bottom right;
+        -ms-transform-origin: bottom right;
+        transform-origin: bottom right;
       }
       .tl:hover ~ main {
         -webkit-transform: rotateY(15deg) rotateX(-15deg);
-                transform: rotateY(15deg) rotateX(-15deg);
+        transform: rotateY(15deg) rotateX(-15deg);
       }
       .tl:hover {
         -webkit-transform: rotateY(15deg) rotateX(-15deg);
-                transform: rotateY(15deg) rotateX(-15deg);
+        transform: rotateY(15deg) rotateX(-15deg);
       }
       .tl:hover .bubble {
         opacity: 1;
         -webkit-transform: translateY(0) scale(1);
-            -ms-transform: translateY(0) scale(1);
-                transform: translateY(0) scale(1);
+        -ms-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
       }
       .tl .bubble {
         -webkit-transform: translateY(10%) scale(0.6);
-            -ms-transform: translateY(10%) scale(0.6);
-                transform: translateY(10%) scale(0.6);
+        -ms-transform: translateY(10%) scale(0.6);
+        transform: translateY(10%) scale(0.6);
       }
 
       .tr {
         top: 0;
         right: 0;
         -webkit-transform-origin: bottom left;
-            -ms-transform-origin: bottom left;
-                transform-origin: bottom left;
+        -ms-transform-origin: bottom left;
+        transform-origin: bottom left;
       }
       .tr:hover ~ main {
         -webkit-transform: rotateY(-15deg) rotateX(-15deg);
-                transform: rotateY(-15deg) rotateX(-15deg);
+        transform: rotateY(-15deg) rotateX(-15deg);
       }
       .tr:hover {
         -webkit-transform: rotateY(-15deg) rotateX(-15deg);
-                transform: rotateY(-15deg) rotateX(-15deg);
+        transform: rotateY(-15deg) rotateX(-15deg);
       }
       .tr:hover .light-toggle {
         opacity: 1;
         -webkit-transform: translateY(0) scale(1);
-            -ms-transform: translateY(0) scale(1);
-                transform: translateY(0) scale(1);
+        -ms-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
       }
 
       .bl {
         bottom: 0;
         left: 0;
         -webkit-transform-origin: top right;
-            -ms-transform-origin: top right;
-                transform-origin: top right;
+        -ms-transform-origin: top right;
+        transform-origin: top right;
       }
       .bl:hover ~ main {
         -webkit-transform: rotateY(15deg) rotateX(15deg);
-                transform: rotateY(15deg) rotateX(15deg);
+        transform: rotateY(15deg) rotateX(15deg);
       }
       .bl:hover {
         -webkit-transform: rotateY(15deg) rotateX(15deg);
-                transform: rotateY(15deg) rotateX(15deg);
+        transform: rotateY(15deg) rotateX(15deg);
       }
       .bl:hover .bubble {
         opacity: 1;
         -webkit-transform: translateY(0) scale(1);
-            -ms-transform: translateY(0) scale(1);
-                transform: translateY(0) scale(1);
+        -ms-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
       }
       .bl .bubble {
         -webkit-transform: translateY(10%) scale(0.6);
-            -ms-transform: translateY(10%) scale(0.6);
-                transform: translateY(10%) scale(0.6);
+        -ms-transform: translateY(10%) scale(0.6);
+        transform: translateY(10%) scale(0.6);
       }
 
       .br {
         bottom: 0;
         right: 0;
         -webkit-transform-origin: top left;
-            -ms-transform-origin: top left;
-                transform-origin: top left;
+        -ms-transform-origin: top left;
+        transform-origin: top left;
       }
       .br:hover ~ main {
         -webkit-transform: rotateY(-15deg) rotateX(15deg);
-                transform: rotateY(-15deg) rotateX(15deg);
+        transform: rotateY(-15deg) rotateX(15deg);
       }
       .br:hover {
         -webkit-transform: rotateY(-15deg) rotateX(15deg);
-                transform: rotateY(-15deg) rotateX(15deg);
+        transform: rotateY(-15deg) rotateX(15deg);
       }
       .br:hover .bubble {
         opacity: 1;
         -webkit-transform: translateY(0) scale(1);
-            -ms-transform: translateY(0) scale(1);
-                transform: translateY(0) scale(1);
+        -ms-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
       }
       .br .bubble {
         -webkit-transform: translateY(10%) scale(0.6);
-            -ms-transform: translateY(10%) scale(0.6);
-                transform: translateY(10%) scale(0.6);
+        -ms-transform: translateY(10%) scale(0.6);
+        transform: translateY(10%) scale(0.6);
       }
 
       .shadow {
@@ -326,7 +327,7 @@
           0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
           0 22.3px 17.9px rgba(0, 0, 0, 0.072),
           0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
-                box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
           0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
           0 22.3px 17.9px rgba(0, 0, 0, 0.072),
           0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
@@ -339,10 +340,14 @@
         top: 3rem;
       }
 
-      @media (hover: none) {
+      @media only screen and (hover: none),(max-width: 600px) {
         body {
           -ms-flex-wrap: wrap;
-              flex-wrap: wrap;-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;
+          flex-wrap: wrap;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
         }
         main {
           width: auto;
@@ -351,16 +356,16 @@
         }
         .tl {
           -webkit-box-ordinal-group: 3;
-              -ms-flex-order: 2;
-                  order: 2;
+          -ms-flex-order: 2;
+          order: 2;
         }
-        .tr{
+        .tr {
           justify-self: flex-end;
         }
         .bl {
           -webkit-box-ordinal-group: 4;
-              -ms-flex-order: 3;
-                  order: 3;
+          -ms-flex-order: 3;
+          order: 3;
         }
         #msg {
           display: none;
@@ -371,49 +376,43 @@
           height: auto;
           padding: 1rem;
         }
-        .active-area::after {
-          content: "";
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          background-color: #fff;
-        }
         .active-area:hover {
           -webkit-transform: translateY(0) scale(1);
-              -ms-transform: translateY(0) scale(1);
-                  transform: translateY(0) scale(1);
+          -ms-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
         }
         .active-area:hover ~ main {
           -webkit-transform: rotateY(0deg) rotateX(0deg);
-                  transform: rotateY(0deg) rotateX(0deg);
+          transform: rotateY(0deg) rotateX(0deg);
         }
         .active-area .bubble {
           -webkit-transform: translateY(0) scale(1);
-              -ms-transform: translateY(0) scale(1);
-                  transform: translateY(0) scale(1);
+          -ms-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
           opacity: 1;
         }
-        .active-area .bubble a{
+        .active-area .bubble a {
           line-height: 1rem;
           padding: 1rem;
           -webkit-transform: translateY(0) scale(1);
-              -ms-transform: translateY(0) scale(1);
-                  transform: translateY(0) scale(1);
+          -ms-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
           opacity: 1;
         }
         .light-toggle {
           -webkit-transform: translateY(0) scale(1);
-              -ms-transform: translateY(0) scale(1);
-                  transform: translateY(0) scale(1);
+          -ms-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
           opacity: 1;
+        }
+        .no-js-msg{
+          top: 0;
+          border-radius: 0;
         }
       }
     </style>
   </head>
   <body>
-    <div class="mobile-nav-button"></div>
-
     <div class="tl active-area">
       <div class="bubble">
         <a
@@ -428,8 +427,8 @@
     <div class="tr active-area">
       <button
         class="light-toggle"
-        name="light-toggle"
         onclick="handleSwitchLight()"
+        aria-label="dark-mode"
       >
         <div class="light-toggle-inner">
           <svg
