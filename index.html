@@ -28,8 +28,8 @@
         background-color: var(--main-color);
         color: var(--main-color);
         font-size: 14px;
-        transition: 0.3s;
         font-family: sans-serif;
+        transition: 0.3s;
       }
       :root.dark {
         --main-color: rgb(9, 56, 97);
@@ -42,11 +42,8 @@
         width: 100vw;
         height: 100vh;
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
         perspective: 100rem;
         overflow: hidden;
       }
@@ -55,32 +52,51 @@
         border: none;
         background: none;
       }
-
       main {
-        opacity: 0;
         width: 30rem;
         height: 20rem;
-        pointer-events: none;
         background-color: var(--second-color);
         border-radius: 6px;
-
         transform-style: preserve-3d;
-
-        transition: 0.3s ease-in-out;
-
         display: grid;
-
         grid-template-columns: 6rem auto 6rem;
-
         grid-template-rows: 6rem auto 6rem;
+        transform: rotateX(-180deg) rotateY(30deg) scale(0.8);
+        transition: transform 0.9s ease-in-out, opacity 0.9s ease-in-out;
       }
-      .no-script main {
+      main > *{
+        pointer-events: none;
+      }
+      main::after{
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        background-color: var(--second-color);
+        background-image: url(android-chrome-192x192.png);
+        background-repeat:  no-repeat;
+        background-size: 6rem;
+        background-position: center;
+        transform: rotateY(-180deg);
+        transition: transform 0.9s;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+      }
+      main.in{
         opacity: 1;
+        transform: rotateX(0deg) rotateY(0deg) scale(1);
       }
-      main.fade {
+      .no-script main{
         opacity: 1;
+        transform: rotateX(0deg) rotateY(0deg) scale(1);
       }
-
+      main.flip{
+        transform : rotateY(180deg)
+      }
       footer {
         position: fixed;
         text-align: center;
@@ -91,7 +107,6 @@
       .bubble {
         border-radius: 6px;
         background-color: var(--second-color);
-
         transition: 0.3s ease-out;
         overflow: hidden;
         opacity: 0;
@@ -117,13 +132,10 @@
       .light-toggle {
         width: 3rem;
         height: 3rem;
-
         perspective: 1000px;
-
         transition: 0.3s ease-out;
         color: var(--second-color);
         opacity: 0;
-
         transform: translateY(10%) scale(0.6);
       }
       .light-toggle:hover {
@@ -133,11 +145,8 @@
         position: relative;
         width: 100%;
         height: 100%;
-
         transition: -webkit-transform 0.8s;
-
         transition: transform 0.8s;
-
         transform-style: preserve-3d;
       }
       html.dark .light-toggle-inner {
@@ -149,7 +158,7 @@
         height: 100%;
         top: 0;
         left: 0;
-
+        transform: rotateY(0deg);
         backface-visibility: hidden;
       }
       .dark-svg {
@@ -158,22 +167,16 @@
         height: 100%;
         top: 0;
         left: 0;
-
         transform: rotateY(180deg);
-
         backface-visibility: hidden;
       }
       .active-area {
         width: 50%;
         height: 50%;
         position: absolute;
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
         transition: 0.3s ease-out;
       }
       .tl {
@@ -190,7 +193,6 @@
       }
       .tl:hover .bubble {
         opacity: 1;
-
         transform: translateY(0) scale(1);
       }
       .tl .bubble {
@@ -200,7 +202,6 @@
       .tr {
         top: 0;
         right: 0;
-
         transform-origin: bottom left;
       }
       .tr:hover ~ main {
@@ -218,7 +219,6 @@
       .bl {
         bottom: 0;
         left: 0;
-
         transform-origin: top right;
       }
       .bl:hover ~ main {
@@ -250,7 +250,6 @@
       }
       .br:hover .bubble {
         opacity: 1;
-
         transform: translateY(0) scale(1);
       }
       .br .bubble {
@@ -271,12 +270,17 @@
         top: 3rem;
       }
 
+
+
       @media only screen and (hover: none), (max-width: 600px) {
         body {
           position: absolute;
           left: 50%;
-          transform: translateX(-50%);
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
           width: auto;
+          height: auto;
+          overflow: auto;
           flex-wrap: wrap;
           flex-direction: column;
         }
@@ -322,12 +326,30 @@
           -webkit-transform: translateY(0) scale(1);
           -ms-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
-          width: 5rem;
+          width: 9rem;
+          opacity: 0;
+          animation: fadeIn 0.3s 0.6s ease-in-out forwards;
+        }
+        .no-script .active-area .bubble {
           opacity: 1;
         }
+        .active-area .light-toggle {
+          opacity: 0;
+          animation: fadeIn 0.3s 0.6s ease-in-out forwards;
+        }
+        .no-script .active-area .light-toggle {
+          opacity: 1;
+        }
+        @keyframes fadeIn {
+          from
+        {
+          opacity: 0;
+        }
+        to{
+          opacity: 1;
+        }
+        }
         .active-area .bubble a {
-          line-height: 1rem;
-          padding: 1rem;
           -webkit-transform: translateY(0) scale(1);
           -ms-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
@@ -347,6 +369,13 @@
           border-radius: 0;
         }
       }
+      @media (max-height: 600px) and (orientation: landscape) {
+        body {
+          top: 0;
+          transform: translateX(-50%);
+        }
+      }
+
       .no-script .light-toggle::before {
         content: "";
         position: absolute;
@@ -362,6 +391,18 @@
         transform-origin: 0.5rem center;
         transform: translateX(1rem) rotateZ(45deg) scaleY(1.2);
       }
+      .active-area .bubble a {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 1rem;
+        line-height: 3rem;
+        justify-content: center;
+        align-content: center;
+      }
+      .svg_icon {
+        height: 3rem;
+        width: 3rem;
+      }
     </style>
   </head>
   <body>
@@ -372,7 +413,54 @@
           alt="profile"
           target="_blank"
           rel="noopener noreferrer"
-          >Profile</a
+          ><svg
+            class="svg_icon"
+            viewBox="0 0 512 512"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <mask id="path-1-inside-1" fill="white">
+              <rect width="512" height="512" rx="34" />
+            </mask>
+            <rect
+              width="512"
+              height="512"
+              rx="34"
+              stroke="currentColor"
+              stroke-width="96"
+              mask="url(#path-1-inside-1)"
+            />
+            <rect
+              x="41"
+              y="41"
+              width="430"
+              height="430"
+              rx="27"
+              stroke="currentColor"
+              stroke-width="14"
+            />
+            <rect
+              x="41"
+              y="41"
+              width="282"
+              height="430"
+              rx="27"
+              stroke="currentColor"
+              stroke-width="14"
+            />
+            <rect
+              x="40"
+              y="41"
+              width="134"
+              height="430"
+              rx="27"
+              stroke="currentColor"
+              stroke-width="14"
+            />
+            <path
+              d="M368.6 221.05C376.667 221.05 383.45 223.984 388.95 229.85C394.817 235.35 397.75 242.317 397.75 250.75C397.75 255.517 396.65 260.65 394.45 266.15C388.583 279.717 380.333 291.084 369.7 300.25C359.067 309.417 347.333 314 334.5 314C324.233 314 315.433 310.334 308.1 303C301.133 295.667 297.65 285.767 297.65 273.3C297.65 266.334 298.017 258.817 298.75 250.75C299.483 244.884 299.85 240.85 299.85 238.65C299.85 235.717 299.117 233.517 297.65 232.05C296.55 230.584 295.083 229.85 293.25 229.85C288.117 229.85 281.15 236.084 272.35 248.55C263.55 260.65 254.75 276.784 245.95 296.95C237.15 317.117 230 338.384 224.5 360.75C220.467 378.35 215.883 390.084 210.75 395.95C205.617 401.817 197.183 404.75 185.45 404.75C171.517 404.75 161.617 397.417 155.75 382.75C150.25 368.084 147.5 344.617 147.5 312.35C147.5 264.684 154.283 219.4 167.85 176.5C171.15 165.867 176.467 158.167 183.8 153.4C191.5 148.267 202.133 145.7 215.7 145.7C223.033 145.7 228.167 146.617 231.1 148.45C234.033 150.284 235.5 153.767 235.5 158.9C235.5 164.767 232.75 177.967 227.25 198.5C223.583 213.167 220.65 226 218.45 237C216.25 248 214.417 261.567 212.95 277.7C225.05 246.167 238.617 220.5 253.65 200.7C268.683 180.9 283.35 166.784 297.65 158.35C311.95 149.917 324.967 145.7 336.7 145.7C347.333 145.7 355.4 148.817 360.9 155.05C366.767 160.917 369.7 169.717 369.7 181.45C369.7 188.417 367.683 201.617 363.65 221.05H368.6Z"
+              fill="currentColor"
+            /></svg>&nbsp;Profile</a
         >
       </div>
     </div>
@@ -485,10 +573,75 @@
       <div class="bubble">
         <a
           href="https://github.com/r7chardgh"
-          alt="profile"
+          alt="github"
           target="_blank"
           rel="noopener noreferrer"
-          >GitHub</a
+          ><svg
+            class="svg_icon"
+            viewBox="0 0 120 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 61.4363C0 27.506 26.3146 1 60 1C93.6854 1 120 27.506 120 61.4363C120 88.648 103.257 109.927 78.9261 118C78.1493 118.258 77.5 118 76.4441 118C75.3883 118 75.3197 114.942 75.2649 112.501L75.2648 112.5C74.937 102.87 74.9871 94.6983 72.483 90.2534C72.2618 89.9102 72.0018 89.5274 71.6904 89.0805L76.2648 88.0566C79.9226 87.3793 81.7228 86.7893 84.3972 85.4967C88.648 83.075 90.6866 81.4493 93.5461 77.8172C96.2256 74.1539 96.9583 71.9056 98.1206 67.0658C99.3749 61.723 98.6289 55.2931 98.1206 52.7332C97.6123 50.1734 96.4583 46.4261 93.0379 41.9794C93.0379 41.467 93.5461 33.2784 93.5461 31.7403C93.5461 30.2023 93.5461 27.6432 92.5296 26.6207C91.0048 25.0869 88.2801 25.824 85.4138 26.6206C80.9833 28.106 78.7659 29.2487 75.2483 31.7403C72.934 30.6941 71.6904 30.2044 69.149 29.6925C66.6077 29.1805 60.0001 28.6685 52.8843 29.6925C49.3264 30.2044 48.4582 30.5148 44.2436 31.7425C41.4259 29.91 40.1775 28.6706 36.1113 27.1347C30.5203 25.0874 27.9789 25.0823 26.9624 28.1562C25.9458 31.23 27.2351 41.0898 26.9624 41.7186C26.6896 42.3474 22.9254 48.125 21.8796 52.7327C20.6014 58.3644 21.5799 62.4806 22.3879 68.0918C23.7152 74.1803 25.4375 77.3073 31.0285 82.427C34.0782 84.9851 40.6857 87.5467 48.3098 88.5689C45.6805 93.1263 44.7592 95.3567 44.7518 95.5C44.7444 95.6433 35.5 97.2143 32.5 95.5C29.5 93.7857 27.4538 90.728 25.8123 88.5C24.1708 86.272 21.4993 84.7926 20.4827 84.5C16.9248 83.4761 15.8845 83.9641 15.8845 85.5C15.8845 86.5222 18.5133 87.7072 20.8484 91C23.3898 94.5838 23.8267 96.5 25.8123 99C28.3537 101.56 31.1857 103.614 34.2509 104C38.3171 104.512 40.4658 104.679 44.7518 104V114.169C44.7518 118.265 44.2436 117.289 43.227 117.801C42.7724 118.03 41.5852 118.027 40.9022 117.801C16.5708 109.728 0 88.648 0 61.4363Z"
+              fill="currentColor"
+            />
+            <ellipse
+              cx="43.2425"
+              cy="98.8957"
+              rx="1.53591"
+              ry="1.02394"
+              transform="rotate(-5.19736 43.2425 98.8957)"
+              fill="currentColor"
+            />
+            <ellipse
+              cx="21.3315"
+              cy="86.9497"
+              rx="0.921544"
+              ry="0.614363"
+              transform="rotate(22.0171 21.3315 86.9497)"
+              fill="currentColor"
+            />
+            <ellipse
+              cx="38.4218"
+              cy="99.3459"
+              rx="1.53591"
+              ry="1.02394"
+              transform="rotate(1.12471 38.4218 99.3459)"
+              fill="currentColor"
+            />
+            <ellipse
+              cx="23.7666"
+              cy="89.324"
+              rx="1.02394"
+              ry="0.716757"
+              transform="rotate(48.3458 23.7666 89.324)"
+              fill="currentColor"
+            />
+            <ellipse
+              cx="26.3789"
+              cy="92.5667"
+              rx="1.22873"
+              ry="0.819151"
+              transform="rotate(48.2493 26.3789 92.5667)"
+              fill="currentColor"
+            />
+            <ellipse
+              cx="29.4911"
+              cy="96.0023"
+              rx="1.43351"
+              ry="0.921545"
+              transform="rotate(39.6666 29.4911 96.0023)"
+              fill="currentColor"
+            />
+            <ellipse
+              cx="33.4524"
+              cy="98.5656"
+              rx="1.53591"
+              ry="1.02394"
+              transform="rotate(18.7113 33.4524 98.5656)"
+              fill="currentColor"
+            /></svg>&nbsp;GitHub</a
         >
       </div>
     </div>
@@ -497,7 +650,6 @@
         <div class="message">Javascript is disabled!</div>
       </div>
     </div>
-
     <main>
       <h1 style="grid-column-start: 2; grid-row-start: 2">Richard Tsang</h1>
       <div style="grid-column-start: 2; grid-row-start: 3">
@@ -506,7 +658,18 @@
     </main>
     <footer>Coded by Richard Tsang</footer>
     <script>
-      document.querySelector("main").classList.add("fade");
+      document.querySelector("main").classList.add("in");
+      const dragMain = document.querySelector("main");
+      const flipMain = ()=>{
+        console.log('flip');
+        dragMain.classList.contains('flip')?dragMain.classList.remove('flip'):dragMain.classList.add('flip');
+      }
+      dragMain.addEventListener("mousedown",flipMain)
+      dragMain.addEventListener("mouseout",(evt)=>{
+        dragMain.classList.contains('flip')?dragMain.classList.remove('flip'):null;
+      })
+     
+      
       document.querySelector(".message").innerHTML = new Date()
         .toString()
         .slice(0, 24);
