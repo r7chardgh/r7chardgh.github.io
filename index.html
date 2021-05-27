@@ -404,6 +404,9 @@
         height: 3rem;
         width: 3rem;
       }
+      main .info > span::before{
+        content: "\2022\00A0";
+      }
     </style>
   </head>
   <body>
@@ -653,9 +656,10 @@
     </div>
     <main>
       <h1 style="grid-column-start: 2; grid-row-start: 2">Richard Tsang</h1>
-      <div style="grid-column-start: 2; grid-row-start: 3">
-        &#9816;&#9; frontend developer<br />&#9000; react | nextjs
-        <br/>&#9993; richardtcfung@gmail.com
+      <div class="info" style="grid-column-start: 2; grid-row-start: 3">
+        <span>frontend developer</span>
+        <br /><span>react | next.js | design</span>
+        <br/><span>richardtcfung@gmail.com</span>
       </div>
     </main>
     <footer>Coded by Richard Tsang</footer>
