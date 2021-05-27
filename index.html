@@ -63,7 +63,7 @@
         grid-template-columns: 6rem auto 6rem;
         grid-template-rows: 6rem auto 6rem;
         transform: rotateX(-180deg) rotateY(30deg) scale(0.8);
-        transition: transform 0.9s ease-in-out, opacity 0.9s ease-in-out;
+        transition: transform 0.9s ease-in-out;
       }
       main > *{
         pointer-events: none;
@@ -83,16 +83,14 @@
         background-size: 6rem;
         background-position: center;
         transform: rotateY(-180deg);
-        transition: transform 0.9s;
+        transition: transform 0.9s ease-in-out;
         backface-visibility: hidden;
         transform-style: preserve-3d;
       }
       main.in{
-        opacity: 1;
         transform: rotateX(0deg) rotateY(0deg) scale(1);
       }
       .no-script main{
-        opacity: 1;
         transform: rotateX(0deg) rotateY(0deg) scale(1);
       }
       main.flip{
@@ -489,7 +487,7 @@
                 fill="transparent"
                 cx="100"
                 cy="100"
-                r="91"
+                r="90"
               />
               <circle cx="100.5" cy="37.5" r="12.5" fill="currentColor" />
               <circle cx="100.5" cy="37.5" r="12.5" fill="currentColor" />
@@ -541,7 +539,7 @@
                 fill="transparent"
                 cx="100"
                 cy="100"
-                r="91"
+                r="90"
               />
 
               <path
