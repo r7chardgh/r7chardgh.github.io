@@ -665,7 +665,6 @@
       setTimeout(()=>{document.querySelector("main").classList.add("in")},300);
       const dragMain = document.querySelector("main");
       const flipMain = ()=>{
-        console.log('flip');
         dragMain.classList.contains('flip')?dragMain.classList.remove('flip'):dragMain.classList.add('flip');
       }
       dragMain.addEventListener("mousedown",flipMain)
