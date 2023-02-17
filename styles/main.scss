@@ -1,0 +1,13 @@
+//theme
+$mainColor: #219ebc;
+$secondColor:#023047;
+$thirdColor: #8ecae6;
+
+
+body{
+    margin: 0;
+    background-color: $mainColor;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+

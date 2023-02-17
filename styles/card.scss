@@ -1,0 +1,16 @@
+@use 'main';
+.card{
+    background-color: main.$thirdColor;
+    .name{
+        color: main.$secondColor;
+    }
+    .role{
+
+    }
+    .skill{
+
+    }
+    .contact{
+
+    }
+}
