@@ -1,31 +1,25 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
-const App = () =>{
-  const [count,setCount] = useState(1);
-  function increaseCounterHandler() {
-    setCount((x)=>x+1);
-    setCount((x)=>x+2);
+import { styled } from "@mui/material/styles";
+import { Container } from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 
-  }
-  function increaseCounterAsyncHandler() {
-    setTimeout(() => {
-       setCount((x)=>x+1);
-    setCount((x)=>x+2);
-    }, 200);
-   
-
-  }
+const App = () => {
   return (
-    <div className="container">
-      <p>you clicked {count}</p>
-      <button onClick={increaseCounterHandler}>
-          Click me
-        </button>
-      <button onClick={increaseCounterAsyncHandler}>
-          Click me minus
-        </button>
-    </div>
+    <>
+      <Container>
+        <Grid container spacing={0} padding={0}>
+          <Grid item xs={2} md={1}></Grid>
+          <Grid item xs={2} md={3}><div style={{background:'black'}}></div>
+          </Grid>
+          <Grid item xs={8} md={8}>
+            <div style={{height:'3260px'}}></div>
+          </Grid>
+        </Grid>
+      </Container>
+    </>
   );
-}
+};
 
 export default App;
