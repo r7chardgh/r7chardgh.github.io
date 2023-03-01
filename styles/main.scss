@@ -14,3 +14,30 @@ body{
 #root{
    
 }
+
+.name{
+    background-color:  rgba(161, 67, 67, 0.2);
+    font-size: 62px;
+    font-weight: 700;
+    text-transform: uppercase;
+    &--first{
+        color: $secondColor;
+    }
+    &--last{
+        color: $thirdColor;
+    }
+}
+
+.greet{background-color: rgba(81, 67, 161, 0.2);;
+    color: $mainColor;
+    font-size: 92px;
+    text-transform: uppercase;
+    text-align: right;
+    .role{
+        font-weight: 700;
+        &--sec-row{
+                font-size: 51px;
+            }
+    }
+    
+}
