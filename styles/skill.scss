@@ -1,0 +1,54 @@
+@import 'styles/variables';
+.skill-card{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(59,56,56,.6);padding: 18px;
+    .title{
+        color: $white;
+        border-bottom: 2px solid $white;
+        &--sub{
+            font-size: 36px;
+            text-transform: capitalize;
+            color: $white;
+            margin-bottom: 24px;
+        }
+    }
+    .item{font-size: 26px;color: $white;}
+    .line{width: 28px;
+        border: 2px solid $white;
+        border-left: 0px;
+        margin: 26px 18px 0px 0px;
+    }
+    .vt{
+        color: $white;
+        font-size: 26px;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: 6px;
+        writing-mode: vertical-rl;text-orientation: mixed;
+    }
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 36px;
+    &:last-child{
+        margin-bottom: 0px;
+    }
+}
+
+.item-container{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.item-wrapper{
+    flex: 1;
+    margin-right: 50px;
+    margin-bottom: 68px;
+    &:last-child{
+        margin-bottom: 0px;
+    }
+}
