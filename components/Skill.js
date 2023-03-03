@@ -9,7 +9,20 @@ const App = () => {
       cat: [
         {
           title: "frontend web dev.",
-          item: ["HTML", "CSS", "JavaScript"],
+          item: [
+            {
+              name: "HTML",
+              rate: 80,
+            },
+            {
+              name: "CSS",
+              rate: 80,
+            },
+            {
+              name: "JavaScript",
+              rate: 80,
+            },
+          ],
         },
       ],
     },
@@ -18,15 +31,38 @@ const App = () => {
       cat: [
         {
           title: "programming",
-          item: ["Node.js"],
+          item: [
+            {
+              name: "Node.js",
+              rate: 0,
+            },
+          ],
         },
         {
           title: "design",
-          item: ["Figma"],
+          item: [
+            {
+              name: "Figma",
+              rate: 0,
+            },
+          ],
         },
         {
           title: "framework",
-          item: ["React", "React Native", "Next.js"],
+          item: [
+            {
+              name: "React",
+              rate: 0,
+            },
+            {
+              name: "React Native",
+              rate: 0,
+            },
+            {
+              name: "Next.js",
+              rate: 0,
+            },
+          ],
         },
       ],
     },
@@ -36,26 +72,35 @@ const App = () => {
       <div className="title">skills</div>
       {skills.map((e) => {
         return (
-          <div className="flex-row">
-            <div className="item-container">
-            {e.cat.map((e) => {
-              return (
-                <div className="item-wrapper">
-                  <div className="title--sub">{e.title}</div>
-                  {e.item.map((e) => {
-                    return <div className="item">{e}</div>;
-                  })}
-                </div>
-              );
-            })}
+          <div className="flex-row" key={e.level}>
+            <div className="cat-container">
+              {e.cat.map((e) => {
+                return (
+                  <div className="item-container" key={e.title}>
+                    <div className="title--sub">{e.title}</div>
+                    {e.item.map((e) => {
+                      return (
+                        <div className="item" key={e.name}>
+                          <div className="item__name">{e.name}</div>
+                          {e.rate > 0 ? (
+                            <div className="item__rate">
+                              <div className="volume"></div>
+                            </div>
+                          ) : null}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </div>
-            <div class="line"></div>
-            <div className="vt">{e.level === 0 ? "familiar" : "capable"}</div>
+            <div className="line"></div>
+            <div className="level">
+              {e.level === 0 ? "familiar" : "capable"}
+            </div>
           </div>
         );
       })}
-
-      <div className=""></div>
     </div>
   );
 };
