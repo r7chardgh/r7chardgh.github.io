@@ -20,7 +20,7 @@ const App = () => {
             },
             {
               name: "JavaScript",
-              rate: 80,
+              rate: 60,
             },
           ],
         },
@@ -84,7 +84,7 @@ const App = () => {
                           <div className="item__name">{e.name}</div>
                           {e.rate > 0 ? (
                             <div className="item__rate">
-                              <div className="volume"></div>
+                              <div className="volume" style={{width:`${e.rate}%`}}></div>
                             </div>
                           ) : null}
                         </div>

@@ -1,5 +1,7 @@
 @import 'styles/variables';
 .skill-card{
+    max-width: 474px;
+    min-width: 453px;
     display: flex;
     flex-direction: column;
     background-color: rgba(59,56,56,.6);padding: 18px;
@@ -53,7 +55,7 @@
             .volume{
                 position: absolute;
                 background-color: $rate-value;
-                width: 80%;
+                width: 0%;
             height: 100%;
             }
         }
@@ -70,6 +72,7 @@
         text-transform: capitalize;
         letter-spacing: 6px;
         writing-mode: vertical-rl;text-orientation: mixed;
+        margin-top: 26px;
     }
 }
 
